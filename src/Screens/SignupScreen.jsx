@@ -1,3 +1,4 @@
+//import "react-native-get-random-values"
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import Parse from 'parse/react-native';
