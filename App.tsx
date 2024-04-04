@@ -1,8 +1,9 @@
 // App.js
 
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import AppNavigator from './src/Navigation/AppNavigator';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Preloader from  './src/Screens/Preloader'
 // import Parse from 'parse/react-native';
 // import parseConfig from './src/config/Parse'; // Import Parse configuration
 
@@ -10,9 +11,19 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 // Parse.serverURL = parseConfig.serverURL;
 
 const App = () => {
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(true);
+    }, 3000);
+  }, []);
+
   return (
     <SafeAreaProvider>
-      <AppNavigator />
+
+     {isLoading ?  <AppNavigator /> : <Preloader />}
     </SafeAreaProvider>
   );
 };

@@ -1,13 +1,24 @@
 // metro.config.js
-const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
+const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
 
 const defaultConfig = getDefaultConfig(__dirname);
+const {assetExts, sourceExts} = defaultConfig.resolver;
 
 const config = {
- resolver: {
+  transformer: {
+    babelTransformerPath: require.resolve('react-native-svg-transformer'),
+  },
+  resolver: {
     assetExts: defaultConfig.resolver.assetExts.concat(['cjs']), // Add "cjs" as an asset extension
-    sourceExts: defaultConfig.resolver.sourceExts.concat(['js', 'jsx', 'ts', 'tsx']), // Ensure JavaScript and TypeScript files are resolved
- },
+    sourceExts: defaultConfig.resolver.sourceExts.concat([
+      'js',
+      'jsx',
+      'ts',
+      'tsx',
+    ]), // Ensure JavaScript and TypeScript files are resolved
+    assetExts: assetExts.filter(ext => ext !== 'svg'),
+    sourceExts: [...sourceExts, 'svg'],
+  },
 };
 
 module.exports = mergeConfig(defaultConfig, config);
