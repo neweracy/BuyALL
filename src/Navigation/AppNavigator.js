@@ -72,7 +72,7 @@ const AppNavigator = () => {
      <NavigationContainer>
       <Stack.Navigator initialRouteName="WelcomeScreen">
         <Stack.Screen name="WelcomeScreen" options={{headerShown: false}} component={WelcomeScreen} headerShown={false}/>
-        <Stack.Screen name="LoginScreen" component={LoginScreen} />
+        <Stack.Screen name="LoginScreen" options={{headerShown: false}} component={LoginScreen} />
         <Stack.Screen name="Sign in" component={SignUpScreen} />
         <Stack.Screen name="ProductDetailsScreen" component={ProductDetailsScreen} />
         <Stack.Screen name="Cart" component={CartScreen} options={{headerShown: false}}/>

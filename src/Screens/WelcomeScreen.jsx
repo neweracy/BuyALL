@@ -103,6 +103,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: moderateScale(40),
+    elevation: 5
   },
   buttonText: {
     color: 'white',
