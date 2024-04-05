@@ -159,7 +159,7 @@ ADDED from C:\Users\kwaka\Documents\react-native\code\buyall\Techten\android\app
 	android:launchMode
 		ADDED from C:\Users\kwaka\Documents\react-native\code\buyall\Techten\android\app\src\main\AndroidManifest.xml:16:9-40
 	android:windowSoftInputMode
-		ADDED from C:\Users\kwaka\Documents\react-native\code\buyall\Techten\android\app\src\main\AndroidManifest.xml:17:9-51
+		ADDED from C:\Users\kwaka\Documents\react-native\code\buyall\Techten\android\app\src\main\AndroidManifest.xml:17:9-48
 	android:exported
 		ADDED from C:\Users\kwaka\Documents\react-native\code\buyall\Techten\android\app\src\main\AndroidManifest.xml:18:9-32
 	android:configChanges

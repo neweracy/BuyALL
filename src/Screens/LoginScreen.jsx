@@ -9,6 +9,7 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 import {FullBlob, Bag} from '../assets/LoadSvg';
+import {MotiView} from 'moti';
 import {scale, verticalScale, moderateScale} from 'react-native-size-matters';
 
 const LoginScreen = ({navigation}) => {
@@ -25,19 +26,26 @@ const LoginScreen = ({navigation}) => {
       alert('Invalid email or password');
     }
   };
-  const {width,height} = useWindowDimensions();
+  const {width, height} = useWindowDimensions();
 
   return (
     <View style={styles.container}>
-      
       <Text style={styles.title}>Log In</Text>
       <View style={styles.topContainer}>
-        <View style={styles.blobs}>
+        <MotiView
+          style={styles.blobs}
+          from={{opacity: 0, translateX: 100, translateY: -160}}
+          animate={{opacity: 1, translateX: 0, translateY: 0}}
+          transition={{delay: 200}}>
           <FullBlob height={verticalScale(300)} width={scale(300)} />
-        </View>
-        <View style={styles.bag}>
+        </MotiView>
+        <MotiView
+          style={styles.bag}
+          from={{opacity: 0, scale: 0.5}}
+          animate={{opacity: 1, scale: 1}}
+          transition={{delay: 300, scale: {type: 'spring', delay: 100}}}>
           <Bag height={verticalScale(250)} width={scale(250)} />
-        </View>
+        </MotiView>
       </View>
       <View style={styles.bottomContainer}>
         <View style={styles.textContent}>
@@ -106,9 +114,9 @@ const styles = StyleSheet.create({
     zIndex: -1,
     flex: 1,
     width: '100%',
-   //  top: moderateScale(0),
+    //  top: moderateScale(0),
 
-     position: 'absolute'
+    position: 'absolute',
   },
   bag: {
     zIndex: 1,
@@ -116,7 +124,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     position: 'relative',
     width: '100%',
-   //  top: moderateScale(50),
+    //  top: moderateScale(50),
   },
   bottomContainer: {
     flex: 1,
@@ -170,9 +178,11 @@ const styles = StyleSheet.create({
   loginLink: {
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'row'
+
+    flexDirection: 'row',
   },
   loginText: {
+    color: '#606C38',
     textAlign: 'center',
   },
   lowerContainer: {

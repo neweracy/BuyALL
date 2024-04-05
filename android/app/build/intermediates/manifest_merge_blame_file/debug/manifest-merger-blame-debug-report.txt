@@ -69,8 +69,8 @@
 42-->C:\Users\kwaka\Documents\react-native\code\buyall\Techten\android\app\src\main\AndroidManifest.xml:14:9-41
 43            android:launchMode="singleTask"
 43-->C:\Users\kwaka\Documents\react-native\code\buyall\Techten\android\app\src\main\AndroidManifest.xml:16:9-40
-44            android:windowSoftInputMode="adjustResize" >
-44-->C:\Users\kwaka\Documents\react-native\code\buyall\Techten\android\app\src\main\AndroidManifest.xml:17:9-51
+44            android:windowSoftInputMode="adjustPan" >
+44-->C:\Users\kwaka\Documents\react-native\code\buyall\Techten\android\app\src\main\AndroidManifest.xml:17:9-48
 45            <intent-filter>
 45-->C:\Users\kwaka\Documents\react-native\code\buyall\Techten\android\app\src\main\AndroidManifest.xml:19:9-22:25
 46                <action android:name="android.intent.action.MAIN" />
