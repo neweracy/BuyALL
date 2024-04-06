@@ -5,7 +5,7 @@ import AppNavigator from './src/Navigation/AppNavigator';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Preloader from  './src/Screens/Preloader'
 import { View } from 'react-native';
-// import Parse from 'parse/react-native';
+import Parse from 'parse/react-native'
 // import parseConfig from './src/config/Parse'; // Import Parse configuration
 
 // Parse.initialize(parseConfig.applicationId, parseConfig.javascriptKey);

@@ -9,8 +9,6 @@
 
 // export default Parse;// parseConfig.js
 
-module.exports = {
-  applicationId: '7ONxPNpiJf5tERZskqM3YfUjLOIaQmIJrVgChGqY',
-  javascriptKey: 'zCOltW3mgeq8DjtMzQ7Kg2QFKVJ9BlmWAMUy1lY9',
-  serverURL: 'https://parseapi.back4app.com/'
-};
+export const applicationId = '7ONxPNpiJf5tERZskqM3YfUjLOIaQmIJrVgChGqY';
+export const javascriptKey = 'zCOltW3mgeq8DjtMzQ7Kg2QFKVJ9BlmWAMUy1lY9';
+export const serverURL = 'https://parseapi.back4app.com/';
