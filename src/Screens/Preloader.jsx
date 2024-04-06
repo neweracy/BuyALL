@@ -1,12 +1,16 @@
-import {create} from 'lodash';
 import React from 'react';
-// import {ActivityIndicator} from 'react-native';
-import {StyleSheet, View, ActivityIndicator} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import LottieView from 'lottie-react-native';
 
 const Preloader = () => {
   return (
     <View style={styles.container}>
-      <ActivityIndicator />
+      <LottieView
+        source={require('../assets/Animation.json')}
+        style={{width: '100%', height: '100%'}}
+        autoPlay
+        loop
+      />
     </View>
   );
 };
@@ -14,9 +18,7 @@ const Preloader = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: 'rgba(255,236,209,0.4)',
+    backgroundColor: 'rgba(255,236,209,1)',
   },
 });
 

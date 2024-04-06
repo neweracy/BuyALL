@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.awesome.app-mergeDebugResources-34:/values-sk/values-sk.xml",
+            "outputFile": "com.awesome.app-mergeDebugResources-35:/values-sk/values-sk.xml",
             "map": [
                 {
                     "source": "C:\\Users\\kwaka\\.gradle\\caches\\transforms-3\\b3627ca143232ec2ceb6e319eb18971d\\transformed\\appcompat-1.6.1\\res\\values-sk\\values-sk.xml",

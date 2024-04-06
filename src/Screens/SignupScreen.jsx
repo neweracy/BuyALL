@@ -1,16 +1,28 @@
 //import "react-native-get-random-values"
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+  useWindowDimensions,
+} from 'react-native';
+import {MotiView} from 'moti';
 import Parse from 'parse/react-native';
-
+import {scale, moderateScale, verticalScale} from 'react-native-size-matters';
+import {FullBlob, SignUp} from '../assets/LoadSvg';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 Parse.setAsyncStorage(AsyncStorage);
 
-Parse.initialize('appid', 'java','masterr');
+Parse.initialize('appid', 'java', 'masterr');
 Parse.serverURL = 'http://localhost:1337/parse';
 
-const SignUpScreen = ({ navigation }) => {
+const SignUpScreen = ({navigation}) => {
+  const {width, height} = useWindowDimensions();
+
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,80 +35,97 @@ const SignUpScreen = ({ navigation }) => {
       user.set('email', email);
       user.set('password', password);
 
-      
       await user.signUp();
 
       console.log('User signed up:', user);
       console.log('Email:', email);
-      console.log('Password:',password);
-      console.log('username:',username);
+      console.log('Password:', password);
+      console.log('username:', username);
 
       // Navigate to Home screen after successful sign up
       navigation.navigate('HomeS');
     } catch (error) {
       console.error('Error signing up:', error);
-      
     }
   };
 
-//   const handleSign = () => {
-//     console.log('Email:', email);
-//     console.log('Username',username);
-//     console.log('Password:', password);
-    
-//     navigation.navigate('HomeS');
-//     // // For example, sending the email and password to a server
-//  };
+  //   const handleSign = () => {
+  //     console.log('Email:', email);
+  //     console.log('Username',username);
+  //     console.log('Password:', password);
+
+  //     navigation.navigate('HomeS');
+  // For example, sending the email and password to a server
+  //  };
   return (
     <View style={styles.container}>
-      {/* Logo */}
-      <View style={styles.logoContainer}>
-        <Image
-          source={require('../../pictures/refer.png')}
-          style={styles.logo}
-        />
-        <Text style={styles.logoText}>My App</Text>
+      <View
+        style={{
+          marginTop: moderateScale(15),
+        }}>
+        <Text style={styles.logoText}>Create an</Text>
+        <Text style={styles.logoText}>Account</Text>
+      </View>
+
+      <View style={styles.topContainer}>
+        <MotiView style={styles.blobs}>
+          <FullBlob height={verticalScale(250)} width={scale(250)} />
+        </MotiView>
+        <MotiView
+          style={styles.bag}
+          from={{opacity: 0, scale: 0.2}}
+          animate={{opacity: 1, scale: 1}}
+          transition={{delay: 400}}>
+          <SignUp height={verticalScale(150)} width={scale(200)} />
+        </MotiView>
       </View>
 
       {/* Form */}
       <View style={styles.formContainer}>
-      <TextInput
-          style={[styles.input, { color: 'black' }]}
-          placeholder="Username"
-          placeholderTextColor={'black'}
-          onChangeText={text => setUsername(text)}
-        />
-        <TextInput
-          style={[styles.input, { color: 'black' }]}
-          placeholder="Email"
-          placeholderTextColor={'black'}
-          onChangeText={text => setEmail(text)}
-        />
-        <TextInput
-          style={[styles.input, { color: 'black' }]}
-          placeholder="Password"
-          placeholderTextColor={'black'}
-          secureTextEntry={true}
-          onChangeText={text => setPassword(text)}
-        />
-        <TouchableOpacity style={styles.button} onPress={handleSign}>
-        <Text style={styles.buttonText}>Signin</Text>
-      </TouchableOpacity>
-        {/* SignUp button removed */}
-        <TouchableOpacity
-          style={styles.loginLink}
-          onPress={() => {
-            navigation.navigate('LoginScreen');
+        <View
+          style={{
+            top: moderateScale(-30),
           }}>
-          <Text style={styles.loginText}>Already a Member? Login</Text>
-        </TouchableOpacity>
+          <TextInput
+            style={[styles.input, {width: width * 0.8}]}
+            placeholder="Email"
+            placeholderTextColor="rgba(96,108,56,0.6)"
+            onChangeText={text => setEmail(text)}
+          />
+          <TextInput
+            style={[styles.input, {marginVertical: 10}]}
+            placeholder="Username"
+            placeholderTextColor="rgba(96,108,56,0.6)"
+            onChangeText={text => setUsername(text)}
+          />
+          <TextInput
+            style={[styles.input, {color: 'black'}]}
+            placeholder="Password"
+            placeholderTextColor="rgba(96,108,56,0.6)"
+            secureTextEntry={true}
+            onChangeText={text => setPassword(text)}
+          />
+        </View>
+        <View
+          style={{
+            top: moderateScale(-50),
+          }}>
+          <TouchableOpacity
+            style={[styles.button, {width: width * 0.8}]}
+            onPress={handleSign}>
+            <Text style={styles.buttonText}>Sign Up</Text>
+          </TouchableOpacity>
+          {/* SignUp button removed */}
+          <TouchableOpacity
+            style={styles.loginLink}
+            onPress={() => {
+              navigation.navigate('LoginScreen');
+            }}>
+            <Text style={styles.loginText}>Already a Member? </Text>
+            <Text style={[styles.loginText,{color: 'blue',fontSize: 15 }]}>Login</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-
-      {/* Illustration */}
-      <Image
-      source={require('../../pictures/signIn.png')}
-        style={styles.illustration}
-      />
     </View>
   );
 };
@@ -104,58 +133,71 @@ const SignUpScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'rgba(255,236,209,0.2)',
+    justifyContent: 'space-around',
+  },
+  topContainer: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  blobs: {
+    alignItems: 'center', // To align the image to the right
+    justifyContent: 'center',
+    zIndex: -1,
+    flex: 1,
+    width: '100%',
+    position: 'absolute',
+  },
+  bag: {
+    zIndex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
+    position: 'relative',
+    width: '100%',
   },
-  logoContainer: {
-    alignItems: 'center',
-    marginBottom: 50,
-  },
-  logo: {
-    width: 100,
-    height: 100,
-  },
+
   logoText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginTop: 10,
+    color: '#606C38',
+    textAlign: 'center',
+    fontSize: 43,
+    fontWeight: '600',
   },
   formContainer: {
-    width: '80%',
-    marginBottom: 20,
+    flex: 1,
+    justifyContent: 'space-around',
+    alignItems: 'center',
   },
   input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginBottom: 10,
-    paddingLeft: 10,
-    borderRadius: 7,
+    backgroundColor: 'rgba(255,236,209,0.2)',
+    borderColor: '#606C38',
+    borderWidth: 2,
+    padding: 10,
+    //  elevation: 5,
+    paddingLeft: 25,
+    borderRadius: 25,
   },
   button: {
-    backgroundColor: 'orange',
-    paddingVertical: 10,
+    backgroundColor: '#606C38',
+    padding: 15,
+    borderRadius: 35,
+    justifyContent: 'center',
     alignItems: 'center',
+    elevation: 6,
   },
   buttonText: {
     color: 'white',
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
   },
-  illustration: {
-    width: '100%',
-    height: 200,
-    resizeMode: 'contain',
-  },
   loginLink: {
-    marginTop: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: moderateScale(10),
+    flexDirection: 'row',
   },
   loginText: {
-    fontSize: 14,
-    color: 'orange',
-    justifyContent: 'center',
-    alignSelf: 'center',
+    color: '#606C38',
+    textAlign: 'center',
   },
 });
 

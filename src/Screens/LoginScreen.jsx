@@ -34,7 +34,7 @@ const LoginScreen = ({navigation}) => {
       <View style={styles.topContainer}>
         <MotiView
           style={styles.blobs}
-          from={{opacity: 0, translateX: 100, translateY: -160}}
+          from={{opacity: 0, translateX: scale(100), translateY: verticalScale(-160)}}
           animate={{opacity: 1, translateX: 0, translateY: 0}}
           transition={{delay: 200}}>
           <FullBlob height={verticalScale(300)} width={scale(300)} />
@@ -74,6 +74,7 @@ const LoginScreen = ({navigation}) => {
             style={[styles.input, {width: width * 0.8}]}
             placeholder="Password"
             placeholderTextColor="rgba(96,108,56,0.6)"
+            selectionColor={'#606C38'}
             onChangeText={setPassword}
             value={password}
             secureTextEntry
@@ -88,7 +89,7 @@ const LoginScreen = ({navigation}) => {
           <TouchableOpacity
             style={styles.loginLink}
             onPress={() => {
-              navigation.navigate('Sign in');
+              navigation.navigate('Sign Up');
             }}>
             <Text style={styles.loginText}>New Member? </Text>
             <Text style={[styles.loginText, {color: 'blue'}]}>Sign-up</Text>
@@ -107,6 +108,7 @@ const styles = StyleSheet.create({
   topContainer: {
     flex: 1,
     justifyContent: 'center',
+    top: moderateScale(0)
   },
   blobs: {
     alignItems: 'center', // To align the image to the right
@@ -114,8 +116,6 @@ const styles = StyleSheet.create({
     zIndex: -1,
     flex: 1,
     width: '100%',
-    //  top: moderateScale(0),
-
     position: 'absolute',
   },
   bag: {
@@ -124,7 +124,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     position: 'relative',
     width: '100%',
-    //  top: moderateScale(50),
   },
   bottomContainer: {
     flex: 1,

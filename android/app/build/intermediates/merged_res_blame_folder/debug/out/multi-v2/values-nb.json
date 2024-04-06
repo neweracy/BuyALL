@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.awesome.app-mergeDebugResources-34:/values-nb/values-nb.xml",
+            "outputFile": "com.awesome.app-mergeDebugResources-35:/values-nb/values-nb.xml",
             "map": [
                 {
                     "source": "C:\\Users\\kwaka\\.gradle\\caches\\transforms-3\\13659b94c66de92d98d7f8af61234b95\\transformed\\core-1.9.0\\res\\values-nb\\values-nb.xml",
