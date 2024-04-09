@@ -24,7 +24,7 @@ const LoginScreen = ({navigation}) => {
 
   const handleLogin = async () => {
     try {
-      // eg: user: user@yahoo.com, pass:hello1234
+      // eg: user: user@gmail.com, pass:hello1234
        // Check if the input is an email or a username
        const isEmail = email.includes('@');
        const usernameOrEmail = isEmail ? email : username;
