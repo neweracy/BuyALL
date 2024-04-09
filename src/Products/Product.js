@@ -36,13 +36,6 @@ const products = [
       price: '1500.00',
       description: 'Great starter kit for all enthusiasts. Electronics made easy with the AZDelivery Starter Kit compatible with Arduino! Our comprehensive starter kit with the 35 in 1 Arduino set and the Arduino Compendium book to get you started easily allows you to tinker with a variety of Arduino projects. With 35 sensors and many modules, the AZDelivery Arduino Kit is compatible with Arduino and other microcontrollers. The microcontroller board with USB cable with 14 digital inputs and outputs and 6 analog inputs allows you to run sophisticated programs, all without complicated programming. With 830 contacts, the breadboard allows you to quickly build electronic circuits. Our Jumper Wire Set includes 120 jumper wires, one third each with M2M, with F2M and with F2F connectors, and with a length of 20 cm each. Our jumper wires can be used with a 2.54 mm pitch and are therefore compatible with all common pin headers.',
      },
-     {
-      id: '5',
-      imageUrl: 'https://res.cloudinary.com/dwrhh1fni/image/upload/v1711544284/Techten/AZ-Delivery_starter_kit_compatible_with_Arduino_mqxbhd.jpg',
-      name: 'AZ-Delivery starter kit compatible with Arduino',
-      price: '1500.00',
-      description: 'Great starter kit for all enthusiasts. Electronics made easy with the AZDelivery Starter Kit compatible with Arduino! Our comprehensive starter kit with the 35 in 1 Arduino set and the Arduino Compendium book to get you started easily allows you to tinker with a variety of Arduino projects. With 35 sensors and many modules, the AZDelivery Arduino Kit is compatible with Arduino and other microcontrollers. The microcontroller board with USB cable with 14 digital inputs and outputs and 6 analog inputs allows you to run sophisticated programs, all without complicated programming. With 830 contacts, the breadboard allows you to quickly build electronic circuits. Our Jumper Wire Set includes 120 jumper wires, one third each with M2M, with F2M and with F2F connectors, and with a length of 20 cm each. Our jumper wires can be used with a 2.54 mm pitch and are therefore compatible with all common pin headers.',
-     },
     // Add more products as needed
   ];
   

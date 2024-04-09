@@ -11058,6 +11058,7 @@
         <attr format="boolean" name="lottie_ignoreDisabledSystemAnimations"/>
         <attr format="boolean" name="lottie_useCompositionFrameRate"/>
         <attr format="boolean" name="lottie_clipToCompositionBounds"/>
+        <attr format="boolean" name="lottie_clipTextToBoundingBox"/>
         
         <attr format="string" name="lottie_defaultFontFileExtension"/>
         

@@ -1,4 +1,4 @@
-//import "react-native-get-random-values"
+import "react-native-get-random-values"
 import React, {useState} from 'react';
 import {
   View,
@@ -16,9 +16,8 @@ import {FullBlob, SignUp} from '../assets/LoadSvg';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 Parse.setAsyncStorage(AsyncStorage);
-
-Parse.initialize('appid', 'java', 'masterr');
-Parse.serverURL = 'http://localhost:1337/parse';
+Parse.initialize('7ONxPNpiJf5tERZskqM3YfUjLOIaQmIJrVgChGqY', 'zCOltW3mgeq8DjtMzQ7Kg2QFKVJ9BlmWAMUy1lY9' , '59OsdAbMVImPHLBFHrYVuchqeqBMJZwLdKGRiKkR');
+Parse.serverURL = 'https://parseapi.back4app.com';
 
 const SignUpScreen = ({navigation}) => {
   const {width, height} = useWindowDimensions();

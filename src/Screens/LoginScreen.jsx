@@ -6,26 +6,49 @@ import {
   TouchableOpacity,
   StyleSheet,
   useWindowDimensions,
-  KeyboardAvoidingView,
+  
 } from 'react-native';
 import {FullBlob, Bag} from '../assets/LoadSvg';
 import {MotiView} from 'moti';
+import Parse from 'parse/react-native';
 import {scale, verticalScale, moderateScale} from 'react-native-size-matters';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+Parse.setAsyncStorage(AsyncStorage);
+Parse.initialize('7ONxPNpiJf5tERZskqM3YfUjLOIaQmIJrVgChGqY', 'zCOltW3mgeq8DjtMzQ7Kg2QFKVJ9BlmWAMUy1lY9' , '59OsdAbMVImPHLBFHrYVuchqeqBMJZwLdKGRiKkR');
+Parse.serverURL = 'https://parseapi.back4app.com';
 
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    // Check if the email and password match the expected values
-    if (email === 'user@gmail.com' && password === 'pass123') {
-      // Simulating successful login
-      navigation.navigate('HomeS');
-    } else {
-      // Optionally, show an alert if the login fails
-      alert('Invalid email or password');
+  const handleLogin = async () => {
+    try {
+      // eg: user: user@yahoo.com, pass:hello1234
+       // Check if the input is an email or a username
+       const isEmail = email.includes('@');
+       const usernameOrEmail = isEmail ? email : username;
+   
+       const user = await Parse.User.logIn(usernameOrEmail, password);
+       // Simulating successful login
+       navigation.navigate('HomeS');
+    } catch (error) {
+       // Optionally, show an alert if the login fails
+       alert('Invalid username or email, or incorrect password');
     }
-  };
+   };
+   
+
+  // const handleLogin = () => {
+  //   // Check if the email and password match the expected values
+  //   if (email === 'user@gmail.com' && password === 'pass123') {
+  //     // Simulating successful login
+  //     navigation.navigate('HomeS');
+  //   } else {
+  //     // Optionally, show an alert if the login fails
+  //     alert('Invalid email or password');
+  //   }
+  // };
   const {width, height} = useWindowDimensions();
 
   return (

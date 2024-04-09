@@ -19,6 +19,10 @@ import com.airbnb.android.react.lottie.LottiePackage;
 import com.rnfs.RNFSPackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.RNGestureHandlerPackage;
+// react-native-get-random-values
+import org.linusu.RNGetRandomValuesPackage;
+// react-native-permissions
+import com.zoontek.rnpermissions.RNPermissionsPackage;
 // react-native-reanimated
 import com.swmansion.reanimated.ReanimatedPackage;
 // react-native-safe-area-context
@@ -78,6 +82,8 @@ public class PackageList {
       new LottiePackage(),
       new RNFSPackage(),
       new RNGestureHandlerPackage(),
+      new RNGetRandomValuesPackage(),
+      new RNPermissionsPackage(),
       new ReanimatedPackage(),
       new SafeAreaContextPackage(),
       new RNScreensPackage(),

@@ -22,21 +22,25 @@ const HomeScreen = () => {
 );
 
 
+
   return (
    
   <View>
     <View>
       <Text style={styles.title}>Welcome to TechTen Planet</Text>
     </View>
+    <View>
     <TextInput style={styles.searchBar}
     placeholder="Search Products..."
     onChangeText={setSearchQuery}
     value={searchQuery}/>
+    </View>
+      
 <ScrollView> 
 <View style={styles.container}> 
   <FlatList
     data={filteredProducts}
-    keyExtractor={(item) => item.id}
+    keyExtractor={(item) => item.id.toString()}
     horizontal={true}
     showsHorizontalScrollIndicator={false}
     ListEmptyComponent={() => (
@@ -110,7 +114,7 @@ const HomeScreen = () => {
 <View style={styles.container}>
   <FlatList
     data={filteredProducts}
-    keyExtractor={(item) => item.id}
+    keyExtractor={(item) => item.id.toString()}
     horizontal={true}
     showsHorizontalScrollIndicator={false}
     renderItem={({ item }) => {
@@ -196,14 +200,14 @@ const styles = StyleSheet.create({
 
   },
   productCard: {
-    borderWidth: 1,
-    borderColor: 'orange',
+    borderWidth: 3,
+    borderColor: '#606C38',
     borderRadius: 8,
     padding: 10,
     margin:8,
     flexDirection: 'column',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#FFECD1',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
@@ -256,7 +260,7 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     height: 40,
-    borderColor: 'gray',
+    borderColor: '#606C38',
     borderWidth: 1,
     paddingLeft: 10,
     margin: 10,
@@ -271,6 +275,7 @@ emptyText: {
   fontSize: 25,
   textAlign: 'center',
 },
+
 });
 
 export default HomeScreen;
