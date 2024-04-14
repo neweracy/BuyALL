@@ -1,14 +1,14 @@
-// import Parse from 'parse/react-native';
-// import AsyncStorage from '@react-native-community/async-storage';
+import Parse from 'parse/react-native';
+import AsyncStorage from '@react-native-community/async-storage';
+import 'dotenv/config';
 
-// Parse.setAsyncStorage(AsyncStorage);
+Parse.setAsyncStorage(AsyncStorage);
 
-// Parse.initialize('7ONxPNpiJf5tERZskqM3YfUjLOIaQmIJrVgChGqY', 'zCOltW3mgeq8DjtMzQ7Kg2QFKVJ9BlmWAMUy1lY9');
-// Parse.serverURL = 'http://127.0.0.1:1337/1';
+const appId = process.env.APP_ID;
+const jsId = process.env.JAVASCRIPT_KEY;
 
+Parse.initialize(appId, jsId);
+Parse.serverURL = 'http://127.0.0.1:1337/1';
 
-// export default Parse;// parseConfig.js
+console.log(appId);
 
-export const applicationId = '7ONxPNpiJf5tERZskqM3YfUjLOIaQmIJrVgChGqY';
-export const javascriptKey = 'zCOltW3mgeq8DjtMzQ7Kg2QFKVJ9BlmWAMUy1lY9';
-export const serverURL = 'https://parseapi.back4app.com/';
