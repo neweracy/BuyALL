@@ -14,7 +14,7 @@ import Parse from 'parse/react-native';
 import {scale, moderateScale, verticalScale} from 'react-native-size-matters';
 import {FullBlob, SignUp} from '../assets/LoadSvg';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+//Mongodb url: mongodb://admin:nj5mFW1H3SjhvTv7fQ03DlBu@MongoS3601A.back4app.com:27017/9e9cba8eb41f44a9a5713857c2a510d8
 Parse.setAsyncStorage(AsyncStorage);
 Parse.initialize('7ONxPNpiJf5tERZskqM3YfUjLOIaQmIJrVgChGqY', 'zCOltW3mgeq8DjtMzQ7Kg2QFKVJ9BlmWAMUy1lY9' , '59OsdAbMVImPHLBFHrYVuchqeqBMJZwLdKGRiKkR');
 Parse.serverURL = 'https://parseapi.back4app.com';
